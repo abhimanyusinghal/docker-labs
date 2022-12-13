@@ -209,11 +209,9 @@ contains a simple Java 9-based project:
 so you can make modifications.)
 
 Enter the directory `helloworld-java-9` and build the project from within a
-running Docker container with JDK 9 installed:
+running Docker container with JDK 9 installed. replace $PWD with your current directory i.e. helloworld-java-9 directory full path:
 
-  docker container run --volume $PWD:/helloworld-java-9 --workdir /helloworld-java-9 \
-      -it --rm openjdk:9-jdk-slim \
-      ./mvnw package
+  docker container run --volume $PWD:/helloworld-java-9 --workdir /helloworld-java-9 -it --rm openjdk:9-jdk-slim ./mvnw package
 
 (If you have JDK 9 installed locally on the host system you can build directly
 with `./mvnw package`.)
