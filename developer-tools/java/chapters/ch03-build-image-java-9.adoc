@@ -210,7 +210,7 @@ so you can make modifications.)
 
 Enter the directory `helloworld-java-9` and build the project:
 
-  mvnw package
+  ./mvnw package
 
 To build Docker image for this application use the file `helloworld-jdk-9.Dockerfile` from the checked out repo to build your image. The contents of the file are shown below:
 
