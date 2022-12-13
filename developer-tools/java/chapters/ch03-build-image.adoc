@@ -232,7 +232,9 @@ https://github.com/fabric8io/docker-maven-plugin[Docker Maven Plugin] allows you
 
 Complete set of goals are listed at https://github.com/fabric8io/docker-maven-plugin.
 
-Clone the sample code from https://github.com/arun-gupta/docker-java-sample/.
+Clone the sample code from https://github.com/arun-gupta/docker-java-sample/. 
+
+    git clone https://github.com/arun-gupta/docker-java-sample/. 
 
 Create the Docker image:
 
