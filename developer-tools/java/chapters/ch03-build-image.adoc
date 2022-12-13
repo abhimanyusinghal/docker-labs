@@ -172,7 +172,7 @@ Let's package this application as a Docker image.
 
 Run the OpenJDK container in an interactive manner:
 
-    docker container run -it openjdk:9
+    docker container run -it openjdk /bin/sh
 
 This will open a terminal in the container. Check the version of Java:
 
