@@ -197,61 +197,6 @@ jdk.zipfs@9
 
 In total there should be 75 modules:
 
-== Create a Docker Image using JDK 9 and Alpine Linux
-
-Instead of `debian` as the base image it is possible to use Alpine Linux
-with an early access build of JDK 9 that is compatible with the muslc library
-shipped with Alpine Linux.
-
-Create a new text file `jdk-9-alpine.Dockerfile`.
-Use the following contents:
-
-[source, text]
-----
-# A JDK 9 with Alpine Linux
-FROM alpine:3.6
-# Add the musl-based JDK 9 distribution
-RUN mkdir /opt
-# Download from http://jdk.java.net/9/
-# ADD http://download.java.net/java/jdk9-alpine/archive/181/binaries/jdk-9-ea+181_linux-x64-musl_bin.tar.gz
-ADD jdk-9-ea+181_linux-x64-musl_bin.tar.gz /opt
-# Set up env variables
-ENV JAVA_HOME=/opt/jdk-9
-ENV PATH=$PATH:$JAVA_HOME/bin
-CMD ["jshell", "-J-XX:+UnlockExperimentalVMOptions", \
-               "-J-XX:+UseCGroupMemoryLimitForHeap", \
-               "-R-XX:+UnlockExperimentalVMOptions", \
-               "-R-XX:+UseCGroupMemoryLimitForHeap"]
-----
-
-This image uses `alpine` 3.6 as the base image and installs the OpenJDK build
-of JDK for Alpine Linux x64 (see the link:ch01-setup.adoc[Setup Environments]
-chapter for how to download this into the current directory).
-
-The image is configured in the same manner as for the `debian`-based image.
-
-Build the image using the command:
-
-  docker image build -t jdk-9-alpine -f jdk-9-alpine.Dockerfile .
-
-List the images available using `docker image ls`:
-
-[source, text]
-----
-REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
-jdk-9-debian-slim       latest              023f6999d94a        4 hours ago         400MB
-jdk-9-alpine            latest              f5a57382f240        4 hours ago         356MB
-debian                  stable-slim         d30525fb4ed2        4 days ago          55.3MB
-alpine                  3.6                 7328f6f8b418        3 months ago        3.97MB
-----
-
-Notice the difference in image sizes.  Alpine Linux by design has been carefully
-crafted to produce a minimal running OS image. A cost of such a design is
-an alternative standard library https://www.musl-libc.org/[musl libc] that is
-not compatible with the C standard library (libc).  As a result the JDK requires
-modifications to run on Alpine Linux.  Such modifications have been proposed
-by the OpenJDK http://openjdk.java.net/projects/portola/[Portola Project].
-
 
 == Create a Docker Image using JDK 9 and a Java application
 
