@@ -208,21 +208,9 @@ contains a simple Java 9-based project:
 (If you have a github account you may wish to fork it and then clone the fork
 so you can make modifications.)
 
-Enter the directory `helloworld-java-9` and build the project from within a
-running Docker container with JDK 9 installed. replace $PWD with your current directory i.e. helloworld-java-9 directory full path:
+Enter the directory `helloworld-java-9` and build the project:
 
-  docker container run --volume $PWD:/helloworld-java-9 --workdir /helloworld-java-9 -it --rm openjdk:9-jdk-slim ./mvnw package
-
-(If you have JDK 9 installed locally on the host system you can build directly
-with `./mvnw package`.)
-
-In this case we are using the `openjdk:9-jdk-slim` on Docker hub that has been
-configured to work with SSL certificates so that the maven wrapper tool can
-successfully download the maven tool.  This image is not produced or in anyway
-endorsed by the OpenJDK project (unlike the JDK 9 distributions that were
-previously required).  It is anticipated that future releases of the JDK from
-the OpenJDK project will have root CA certificates (see issue
-https://bugs.openjdk.java.net/browse/JDK-8189131[JDK-8189131])
+  mvnw package
 
 To build Docker image for this application use the file `helloworld-jdk-9.Dockerfile` from the checked out repo to build your image. The contents of the file are shown below:
 
