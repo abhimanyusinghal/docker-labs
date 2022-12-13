@@ -197,11 +197,6 @@ jdk.zipfs@9
 
 In total there should be 75 modules:
 
-[source, text]
-----
-$ docker container run -m=200M -it --rm jdk-9-debian-slim java --list-modules | wc -l
-----
-
 == Create a Docker Image using JDK 9 and Alpine Linux
 
 Instead of `debian` as the base image it is possible to use Alpine Linux
