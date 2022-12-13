@@ -13,6 +13,9 @@ This chapter expands on this topic and focuses on JDK 9 features.
 
 Create a new directory, for example `docker-jdk9`.
 
+    mkdir docker-jdk9
+    cd docker-jdk9
+
 In that directory, create a new text file `jdk-9-debian-slim.Dockerfile`.
 Use the following contents:
 
