@@ -32,7 +32,7 @@ The output is continually updated. It shows:
 
 == Docker Remote API
 
-Docker Remote API provides a lot more details about the health of the container. It can be invoked using the following format:
+Docker Remote API provides a lot more details about the health of the container. It can be invoked using the following format Note that below example will only run on a linux machine. For Windows you can use TCP by enabling api on tcp as explained by your instructor:
 
     curl --unix-socket /var/run/docker.sock http://localhost/containers/<name>/stats
 
